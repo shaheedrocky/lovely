@@ -1,0 +1,28 @@
+# React Native
+client/node_modules/
+client/ios/Pods/
+client/ios/build/
+client/android/.gradle/
+client/android/build/
+client/android/app/build/
+
+# Python
+backend/__pycache__/
+backend/.venv/
+backend/venv/
+*.py[cod]
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
