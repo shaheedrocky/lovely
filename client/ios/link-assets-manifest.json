@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Tangerine-Bold.ttf",
+      "sha1": "49afd32d5a544780a35c967b0e51944ad9b233d7"
+    },
+    {
+      "path": "src/assets/fonts/Tangerine-Regular.ttf",
+      "sha1": "e201c022219bad1e0cf8831ccafff9e09d99f519"
+    },
+    {
+      "path": "src/assets/fonts/Tangerine.ttf",
+      "sha1": "49afd32d5a544780a35c967b0e51944ad9b233d7"
+    }
+  ]
+}

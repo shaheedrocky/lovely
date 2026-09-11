@@ -1,15 +1,51 @@
-import "./global.css"
-import { View, Text } from 'react-native'
-import React from 'react'
+import "./global.css";
+import React, { useState } from "react";
+import { StatusBar } from "react-native";
+import {
+  SafeAreaProvider,
+  SafeAreaView,
+} from "react-native-safe-area-context";
+import { NavigationContainer } from "@react-navigation/native";
+
+import AuthNavigation from "./src/navigation/AuthNavigation";
+import { navigationRef } from "./src/lib";
 
 const App = () => {
-  return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-xl font-bold text-blue-500">
-        Welcome to Nativewind!
-      </Text>
-    </View>
-  )
-}
+  const [currentScreenName, setCurrentScreenName] = useState<
+    string | undefined
+  >("Splash");
 
-export default App
+  return (
+    <SafeAreaProvider>
+      <StatusBar
+        barStyle={
+          currentScreenName === "Splash" ? "light-content" : "dark-content"
+        }
+      />
+      <NavigationContainer
+        ref={navigationRef}
+        onReady={() => {
+          const currentRoute = navigationRef.getCurrentRoute();
+          setCurrentScreenName(currentRoute?.name);
+          console.log("Current Screen:", currentRoute?.name);
+        }}
+        onStateChange={() => {
+          const currentRoute = navigationRef.getCurrentRoute();
+          setCurrentScreenName(currentRoute?.name);
+          console.log("Current Screen:", currentRoute?.name);
+        }}
+      >
+        <SafeAreaView
+          edges={currentScreenName === "Splash" ? [] : ["top", "left", "right", "bottom"]}
+          className={`flex-1 ${
+            currentScreenName === "Splash" ? "bg-primary-700" : "bg-white"
+          }`}
+        >
+          <AuthNavigation />
+        </SafeAreaView>
+      </NavigationContainer>
+    </SafeAreaProvider>
+  );
+};
+
+export default App;

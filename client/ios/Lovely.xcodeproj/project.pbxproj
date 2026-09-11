@@ -12,6 +12,9 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		0044E6C7102C42E7A5F5519B /* Tangerine-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E167D1003A3A47CF8D329E88 /* Tangerine-Bold.ttf */; };
+		287D18ABC63B4C83BBC2723B /* Tangerine-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DC606DA0AD448E0A71EF29B /* Tangerine-Regular.ttf */; };
+		E65553089A16493D9AC3F84C /* Tangerine.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F7719D4147D4FFD8B8DE10E /* Tangerine.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Lovely/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Lovely/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		E167D1003A3A47CF8D329E88 /* Tangerine-Bold.ttf */ = {isa = PBXFileReference; name = "Tangerine-Bold.ttf"; path = "../src/assets/fonts/Tangerine-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5DC606DA0AD448E0A71EF29B /* Tangerine-Regular.ttf */ = {isa = PBXFileReference; name = "Tangerine-Regular.ttf"; path = "../src/assets/fonts/Tangerine-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8F7719D4147D4FFD8B8DE10E /* Tangerine.ttf */ = {isa = PBXFileReference; name = "Tangerine.ttf"; path = "../src/assets/fonts/Tangerine.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				84C080F510F543AD82DC179E /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -97,6 +104,17 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		84C080F510F543AD82DC179E /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				E167D1003A3A47CF8D329E88 /* Tangerine-Bold.ttf */,
+				5DC606DA0AD448E0A71EF29B /* Tangerine-Regular.ttf */,
+				8F7719D4147D4FFD8B8DE10E /* Tangerine.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -161,6 +179,9 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				098889DBF73D2E941186FC14 /* PrivacyInfo.xcprivacy in Resources */,
+				0044E6C7102C42E7A5F5519B /* Tangerine-Bold.ttf in Resources */,
+				287D18ABC63B4C83BBC2723B /* Tangerine-Regular.ttf in Resources */,
+				E65553089A16493D9AC3F84C /* Tangerine.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

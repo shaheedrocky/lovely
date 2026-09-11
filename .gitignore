@@ -7,9 +7,9 @@ client/android/build/
 client/android/app/build/
 
 # Python
-backend/__pycache__/
-backend/.venv/
-backend/venv/
+server/__pycache__/
+server/.venv/
+server/venv/
 *.py[cod]
 
 # Environment variables
