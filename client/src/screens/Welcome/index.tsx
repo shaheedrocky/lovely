@@ -1,57 +1,140 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import {
+  ThemedView,
+  ThemedText,
+  ThemedButton,
+  ThemeToggle,
+} from '../../components';
+import CustomModal from '../../components/ui/CustomModal';
+import { useToast } from '../../components/ui/ToastContext';
+import { fontSizes, useTheme } from '../../theme';
+import { AuthStackParamList } from '../../types/navigation';
+import VectorIcon from '../../components/common/VectorIcons';
+import Config from 'react-native-config';
 
-const Welcome = () => {
+type NavigationProp = NativeStackNavigationProp<AuthStackParamList, 'Welcome'>;
+
+const Welcome: React.FC = () => {
+  const { colors } = useTheme();
+  const navigation = useNavigation<NavigationProp>();
+  const { showToast } = useToast();
+
+  const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+
+  const handleSignIn = () => {
+    setIsSignInModalOpen(false);
+    showToast({
+      title: 'Welcome Back!',
+      message: 'Signed in successfully. Navigating to your dashboard...',
+      type: 'heart',
+      duration: 3500,
+    });
+    navigation.navigate('Dashboard');
+  };
+
+  const isDev = Config?.NODE_ENV === 'development';
+
   return (
-    <View className="flex-1 justify-between bg-white px-6 py-12">
-      <View className="mt-8 items-center">
-        <Text style={styles.brandText} className="text-7xl text-primary-700">
-          Lovely
-        </Text>
-        <Text className="mt-2 text-center text-sm font-medium tracking-[3px] text-gray-500 uppercase">
-          Where Hearts Find Their Match
-        </Text>
-      </View>
-
-      <View className="items-center px-4">
-        <View className="h-44 w-44 items-center justify-center rounded-full bg-primary-50">
-          <Text className="text-6xl">💖</Text>
+    <ThemedView className="flex-1 justify-between px-4 pb-2">
+      {/* Top Header & Theme Switcher */}
+      <View className="flex-row items-center justify-between pt-1">
+        <View className="flex-row items-center gap-2">
+          <View
+            className={`h-2 w-2 rounded-full ${
+              isDev ? 'bg-green-500' : 'bg-orange-500'
+            }`}
+          />
+          <ThemedText variant="caption" color="muted">
+            v1.0 PREMIUM
+          </ThemedText>
         </View>
-        <Text className="mt-8 text-center text-2xl font-bold text-gray-800">
+        <ThemeToggle />
+      </View>
+
+      {/* Brand Title & Tagline */}
+      <View className="items-center">
+        <ThemedText
+          variant="brandTitle"
+          color="brand"
+          className="text-center"
+        >
+          Lovely
+        </ThemedText>
+        <ThemedText
+          variant="tagline"
+          color="muted"
+          className="mt-1 text-center"
+        >
+          Where Hearts Find Their Match
+        </ThemedText>
+      </View>
+
+      {/* Center Hero Illustration / Heart Badge */}
+      <View className="items-center px-4">
+        <View className="h-44 w-44 items-center justify-center rounded-full border-2 border-primary-200 bg-primary-50 animate-pulse dark:border-border-dark dark:bg-surface-dark-elevated">
+          <VectorIcon
+            type="Ionicons"
+            name="heart"
+            color={colors.textBrand}
+            size={fontSizes['8xl']}
+          />
+        </View>
+
+        <ThemedText variant="h2" className="mt-8 text-center">
           Welcome to Lovely
-        </Text>
-        <Text className="mt-3 text-center text-sm leading-6 text-gray-500">
+        </ThemedText>
+
+        <ThemedText
+          variant="body"
+          color="secondary"
+          align="center"
+          className="mt-3 text-center leading-6"
+        >
           Start your journey towards meaningful connections and genuine love.
-        </Text>
+        </ThemedText>
       </View>
 
-      <View className="gap-3">
-        <TouchableOpacity
-          activeOpacity={0.8}
-          className="w-full items-center rounded-2xl bg-primary-700 py-4 shadow-sm"
-        >
-          <Text className="text-base font-semibold text-white">
-            Create Account
-          </Text>
-        </TouchableOpacity>
+      {/* Action Buttons */}
+      <View className="gap-3.5 pb-1">
+        <ThemedButton
+          title="Create Account"
+          variant="primary"
+          size="lg"
+          onPress={() => navigation.navigate('CreateAccount')}
+        />
 
-        <TouchableOpacity
-          activeOpacity={0.8}
-          className="w-full items-center rounded-2xl border border-gray-200 bg-gray-50 py-4"
-        >
-          <Text className="text-base font-semibold text-gray-700">
-            Sign In
-          </Text>
-        </TouchableOpacity>
+        <ThemedButton
+          title="Sign In"
+          variant="secondary"
+          size="lg"
+          onPress={() => setIsSignInModalOpen(true)}
+        />
       </View>
-    </View>
+
+      {/* Sign In Custom Modal Demo */}
+      <CustomModal
+        visible={isSignInModalOpen}
+        onClose={() => setIsSignInModalOpen(false)}
+        title="Sign In to Lovely"
+        subtitle="Ready to reconnect with your matches?"
+        icon={'\u2665\uFE0E'}
+        primaryAction={{
+          label: 'Continue as Shaheed',
+          onPress: handleSignIn,
+        }}
+        secondaryAction={{
+          label: 'Create a New Account',
+          onPress: () => {
+            setIsSignInModalOpen(false);
+            navigation.navigate('CreateAccount');
+          },
+        }}
+      />
+    </ThemedView>
   );
 };
-
-const styles = StyleSheet.create({
-  brandText: {
-    fontFamily: 'Tangerine-Bold',
-  },
-});
 
 export default Welcome;

@@ -1,6 +1,6 @@
 import "./global.css";
 import React, { useState } from "react";
-import { StatusBar } from "react-native";
+import { LogBox, StatusBar } from "react-native";
 import {
   SafeAreaProvider,
   SafeAreaView,
@@ -8,42 +8,73 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 
 import AuthNavigation from "./src/navigation/AuthNavigation";
-import { navigationRef } from "./src/lib";
+import { navigationRef, devNav } from "./src/lib";
+import { ThemeProvider, useTheme } from "./src/theme";
+import { ToastProvider } from "./src/components/ui/ToastContext";
 
-const App = () => {
+LogBox.ignoreAllLogs();
+
+const AppContent: React.FC = () => {
   const [currentScreenName, setCurrentScreenName] = useState<
     string | undefined
-  >("Splash");
+  >(() => devNav.getLastRoute() || "Splash");
+  const { isDark, navigationTheme } = useTheme();
+
+  const isSplashScreen = currentScreenName === "Splash";
+
+  const getStatusBarStyle = () => {
+    if (isSplashScreen) {
+      return "light-content";
+    }
+    return isDark ? "light-content" : "dark-content";
+  };
 
   return (
-    <SafeAreaProvider>
-      <StatusBar
-        barStyle={
-          currentScreenName === "Splash" ? "light-content" : "dark-content"
-        }
-      />
+    <>
+      <StatusBar barStyle={getStatusBarStyle()} />
       <NavigationContainer
         ref={navigationRef}
+        theme={navigationTheme}
+        initialState={devNav.getNavState()}
         onReady={() => {
           const currentRoute = navigationRef.getCurrentRoute();
-          setCurrentScreenName(currentRoute?.name);
-          console.log("Current Screen:", currentRoute?.name);
+          if (currentRoute?.name) {
+            devNav.setLastRoute(currentRoute.name);
+            setCurrentScreenName(currentRoute.name);
+          }
         }}
-        onStateChange={() => {
+        onStateChange={(state) => {
+          devNav.setNavState(state);
           const currentRoute = navigationRef.getCurrentRoute();
-          setCurrentScreenName(currentRoute?.name);
-          console.log("Current Screen:", currentRoute?.name);
+          if (currentRoute?.name) {
+            devNav.setLastRoute(currentRoute.name);
+            setCurrentScreenName(currentRoute.name);
+          }
         }}
       >
         <SafeAreaView
-          edges={currentScreenName === "Splash" ? [] : ["top", "left", "right", "bottom"]}
-          className={`flex-1 ${
-            currentScreenName === "Splash" ? "bg-primary-700" : "bg-white"
-          }`}
+          edges={isSplashScreen ? [] : ["top", "left", "right", "bottom"]}
+          className={
+            isSplashScreen
+              ? "flex-1 bg-primary-700"
+              : "flex-1 bg-background-light dark:bg-background-dark"
+          }
         >
           <AuthNavigation />
         </SafeAreaView>
       </NavigationContainer>
+    </>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <SafeAreaProvider>
+      <ThemeProvider>
+        <ToastProvider>
+          <AppContent />
+        </ToastProvider>
+      </ThemeProvider>
     </SafeAreaProvider>
   );
 };

@@ -1,0 +1,11 @@
+declare module 'react-native-vector-icons/dist/FontAwesome';
+declare module 'react-native-vector-icons/dist/FontAwesome5';
+declare module 'react-native-vector-icons/dist/MaterialCommunityIcons';
+declare module 'react-native-vector-icons/dist/MaterialIcons';
+declare module 'react-native-vector-icons/dist/Feather';
+declare module 'react-native-vector-icons/dist/AntDesign';
+declare module 'react-native-vector-icons/dist/Entypo';
+declare module 'react-native-vector-icons/dist/Ionicons';
+declare module 'react-native-vector-icons/dist/EvilIcons';
+declare module 'react-native-vector-icons/dist/Octicons';
+declare module 'react-native-vector-icons/dist/Fontisto';

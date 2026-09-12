@@ -6,11 +6,11 @@ import {
   Dimensions,
   Text,
   Platform,
-  StyleSheet,
   Pressable,
   StatusBar,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { devNav } from '../../lib';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
@@ -71,6 +71,7 @@ const Splash: React.FC = () => {
       return;
     }
     hasNavigated.current = true;
+    devNav.setHasSeenSplash(true);
 
     Animated.timing(screenFadeAnim, {
       toValue: 0,
@@ -79,9 +80,9 @@ const Splash: React.FC = () => {
       useNativeDriver: true,
     }).start(() => {
       if (navigation && typeof navigation.replace === 'function') {
-        navigation.replace('Welcome');
+        navigation.replace('Onboarding');
       } else if (navigation && typeof navigation.navigate === 'function') {
-        navigation.navigate('Welcome');
+        navigation.navigate('Onboarding');
       }
     });
   }, [navigation, screenFadeAnim]);
@@ -90,6 +91,16 @@ const Splash: React.FC = () => {
   // Animation Orchestration
   // ---------------------------------------------------------------------------
   useEffect(() => {
+    // If the splash has already completed in this dev/app session, skip immediately
+    if (devNav.hasSeenSplash()) {
+      if (navigation && typeof navigation.replace === 'function') {
+        navigation.replace('Onboarding');
+      } else if (navigation && typeof navigation.navigate === 'function') {
+        navigation.navigate('Onboarding');
+      }
+      return;
+    }
+
     const timeouts: ReturnType<typeof setTimeout>[] = [];
     const activeLoops: Animated.CompositeAnimation[] = [];
 
@@ -388,10 +399,7 @@ const Splash: React.FC = () => {
           >
             <View className="h-[90px] w-[90px] items-center justify-center rounded-full border-[1.5px] border-white/40 bg-white/[0.16] shadow-xl shadow-white/30">
               <View className="h-[72px] w-[72px] items-center justify-center rounded-full bg-white/[0.22]">
-                <Text
-                  className="text-center text-[42px] leading-[48px] text-white"
-                  style={styles.fontNoPadding}
-                >
+                <Text className="text-center text-[42px] leading-[48px] text-white">
                   {'\u2665\uFE0E'}
                 </Text>
               </View>
@@ -421,7 +429,6 @@ const Splash: React.FC = () => {
           >
             <Text
               className="font-tangerine-bold px-6 py-1 text-center text-[90px] leading-[104px] text-white"
-              style={styles.fontNoPadding}
             >
               Lovely
             </Text>
@@ -447,10 +454,7 @@ const Splash: React.FC = () => {
             </Text>
             <View className="my-2.5 w-36 flex-row items-center justify-center">
               <View className="h-[1px] flex-1 bg-white/30" />
-              <Text
-                className="mx-2 text-[10px] text-white/80"
-                style={styles.fontNoPadding}
-              >
+              <Text className="mx-2 text-[10px] text-white/80">
                 {'\u2665\uFE0E'}
               </Text>
               <View className="h-[1px] flex-1 bg-white/30" />
@@ -479,14 +483,5 @@ const Splash: React.FC = () => {
     </Pressable>
   );
 };
-
-// -----------------------------------------------------------------------------
-// Cross-platform font metrics helper
-// -----------------------------------------------------------------------------
-const styles = StyleSheet.create({
-  fontNoPadding: {
-    includeFontPadding: false,
-  },
-});
 
 export default Splash;

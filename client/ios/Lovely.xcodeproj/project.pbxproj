@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0044E6C7102C42E7A5F5519B /* Tangerine-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E167D1003A3A47CF8D329E88 /* Tangerine-Bold.ttf */; };
 		098889DBF73D2E941186FC14 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		0C80B921A6F3F58F76C31292 /* libPods-Lovely.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Lovely.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		287D18ABC63B4C83BBC2723B /* Tangerine-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DC606DA0AD448E0A71EF29B /* Tangerine-Regular.ttf */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		0044E6C7102C42E7A5F5519B /* Tangerine-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E167D1003A3A47CF8D329E88 /* Tangerine-Bold.ttf */; };
-		287D18ABC63B4C83BBC2723B /* Tangerine-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DC606DA0AD448E0A71EF29B /* Tangerine-Regular.ttf */; };
 		E65553089A16493D9AC3F84C /* Tangerine.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F7719D4147D4FFD8B8DE10E /* Tangerine.ttf */; };
 /* End PBXBuildFile section */
 
@@ -24,13 +24,13 @@
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = Lovely/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-Lovely.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lovely.debug.xcconfig"; path = "Target Support Files/Pods-Lovely/Pods-Lovely.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-Lovely.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lovely.release.xcconfig"; path = "Target Support Files/Pods-Lovely/Pods-Lovely.release.xcconfig"; sourceTree = "<group>"; };
+		5DC606DA0AD448E0A71EF29B /* Tangerine-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Tangerine-Regular.ttf"; path = "../src/assets/fonts/Tangerine-Regular.ttf"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-Lovely.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Lovely.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Lovely/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Lovely/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8F7719D4147D4FFD8B8DE10E /* Tangerine.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Tangerine.ttf; path = ../src/assets/fonts/Tangerine.ttf; sourceTree = "<group>"; };
+		E167D1003A3A47CF8D329E88 /* Tangerine-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Tangerine-Bold.ttf"; path = "../src/assets/fonts/Tangerine-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		E167D1003A3A47CF8D329E88 /* Tangerine-Bold.ttf */ = {isa = PBXFileReference; name = "Tangerine-Bold.ttf"; path = "../src/assets/fonts/Tangerine-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5DC606DA0AD448E0A71EF29B /* Tangerine-Regular.ttf */ = {isa = PBXFileReference; name = "Tangerine-Regular.ttf"; path = "../src/assets/fonts/Tangerine-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		8F7719D4147D4FFD8B8DE10E /* Tangerine.ttf */ = {isa = PBXFileReference; name = "Tangerine.ttf"; path = "../src/assets/fonts/Tangerine.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +96,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		84C080F510F543AD82DC179E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E167D1003A3A47CF8D329E88 /* Tangerine-Bold.ttf */,
+				5DC606DA0AD448E0A71EF29B /* Tangerine-Regular.ttf */,
+				8F7719D4147D4FFD8B8DE10E /* Tangerine.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,17 +115,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		84C080F510F543AD82DC179E /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				E167D1003A3A47CF8D329E88 /* Tangerine-Bold.ttf */,
-				5DC606DA0AD448E0A71EF29B /* Tangerine-Regular.ttf */,
-				8F7719D4147D4FFD8B8DE10E /* Tangerine.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
