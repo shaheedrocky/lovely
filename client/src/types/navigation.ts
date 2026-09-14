@@ -8,6 +8,7 @@ export type AuthStackParamList = {
   Splash: undefined;
   Onboarding: undefined;
   Welcome: undefined;
+  SignIn: undefined;
   CreateAccount: undefined;
   Dashboard: undefined;
   ProfileSetup: {

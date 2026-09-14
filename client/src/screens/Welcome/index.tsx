@@ -28,11 +28,11 @@ const Welcome: React.FC = () => {
     setIsSignInModalOpen(false);
     showToast({
       title: 'Welcome Back!',
-      message: 'Signed in successfully. Navigating to your dashboard...',
+      message: 'Signed in successfully. Navigating to your profile...',
       type: 'heart',
       duration: 3500,
     });
-    navigation.navigate('Dashboard');
+    navigation.navigate('ProfileSetup');
   };
 
   const isDev = Config?.NODE_ENV === 'development';
@@ -103,7 +103,7 @@ const Welcome: React.FC = () => {
           title="Create Account"
           variant="primary"
           size="lg"
-          onPress={() => navigation.navigate('CreateAccount')}
+          onPress={() => navigation.navigate('ProfileSetup')}
         />
 
         <ThemedButton
@@ -126,10 +126,12 @@ const Welcome: React.FC = () => {
           onPress: handleSignIn,
         }}
         secondaryAction={{
-          label: 'Create a New Account',
+          label: 'Sign In with Email',
           onPress: () => {
             setIsSignInModalOpen(false);
-            navigation.navigate('CreateAccount');
+            setTimeout(() => {
+              navigation.navigate('SignIn');
+            }, 50);
           },
         }}
       />
